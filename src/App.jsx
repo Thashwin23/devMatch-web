@@ -1,12 +1,10 @@
 import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <h1>hello</h1>
-    </>
+    <div className="flex min-h-screen items-center justify-center">
+      <button className="btn btn-primary">Hello DevMatch</button>
+    </div>
   );
 }
 
