@@ -61,7 +61,7 @@ const NavBar = () => {
                 <Link to="/premium">Premium</Link>
               </li>
               <li>
-                {/* <a onClick={handleLogout}>Logout</a> */}
+                <a onClick={handleLogout}>Logout</a>
               </li>
             </ul>
           </div>
