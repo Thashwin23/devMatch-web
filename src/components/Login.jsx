@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
-import { useDispatch } from "react-redux";
-import { addUser } from "../utils/userSlice";
+// import { useDispatch } from "react-redux";
+// import { addUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
 
@@ -12,8 +12,8 @@ const Login = () => {
   const [lastName, setLastName] = useState("");
   const [isLoginForm, setIsLoginForm] = useState(true);
   const [error, setError] = useState("");
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  //   const dispatch = useDispatch();
+  //   const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
@@ -21,9 +21,9 @@ const Login = () => {
         BASE_URL + "/login",
         {
           emailId,
-          password,a
+          password,
         },
-        { withCredentials: true }
+        { withCredentials: true },
       );
       dispatch(addUser(res.data));
       return navigate("/");
@@ -37,7 +37,7 @@ const Login = () => {
       const res = await axios.post(
         BASE_URL + "/signup",
         { firstName, lastName, emailId, password },
-        { withCredentials: true }
+        { withCredentials: true },
       );
       dispatch(addUser(res.data.data));
       return navigate("/profile");
