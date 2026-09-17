@@ -1,19 +1,19 @@
 import { useState } from "react";
 import axios from "axios";
-// import { useDispatch } from "react-redux";
-// import { addUser } from "../utils/userSlice";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
 
 const Login = () => {
-  const [emailId, setEmailId] = useState("");
-  const [password, setPassword] = useState("");
+  const [emailId, setEmailId] = useState("arjun.reddy@example.com");
+  const [password, setPassword] = useState("Arjun@9876");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [isLoginForm, setIsLoginForm] = useState(true);
   const [error, setError] = useState("");
-  //   const dispatch = useDispatch();
-  //   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
@@ -26,7 +26,7 @@ const Login = () => {
         { withCredentials: true },
       );
       dispatch(addUser(res.data));
-      return navigate("/");
+      //   return navigate("/");
     } catch (err) {
       setError(err?.response?.data || "Something went wrong");
     }
