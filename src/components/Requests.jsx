@@ -7,13 +7,13 @@ import { useEffect, useState } from "react";
 const Requests = () => {
   const requests = useSelector((store) => store.requests);
   const dispatch = useDispatch();
-
+  console.log("Requests:", requests);
   const reviewRequest = async (status, _id) => {
     try {
       const res = axios.post(
         BASE_URL + "/request/review/" + status + "/" + _id,
         {},
-        { withCredentials: true }
+        { withCredentials: true },
       );
       dispatch(removeRequest(_id));
     } catch (err) {}
@@ -21,7 +21,7 @@ const Requests = () => {
 
   const fetchRequests = async () => {
     try {
-      const res = await axios.get(BASE_URL + "/user/requests/received", {
+      const res = await axios.get(BASE_URL + "/user/requests/recieved", {
         withCredentials: true,
       });
 
@@ -44,7 +44,7 @@ const Requests = () => {
 
       {requests.map((request) => {
         const { _id, firstName, lastName, photoUrl, age, gender, about } =
-          request.fromUserId;
+          request?.fromuserId;
 
         return (
           <div

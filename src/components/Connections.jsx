@@ -10,7 +10,7 @@ const Connections = () => {
 
   const dispatch = useDispatch();
 
-  console.log("Connections from Redux:", connections);
+  
 
   const fetchConnections = async () => {
     try {
@@ -18,7 +18,7 @@ const Connections = () => {
         withCredentials: true,
       });
 
-      console.log("API DATA:", res.data.data);
+      
 
       dispatch(addConnections(res.data.data));
     } catch (err) {
